@@ -9,11 +9,13 @@ export const Card = props => {
 				<div className="card-body">
 					<h5 className="card-title">{props.title}</h5>
 					<p className="card-text">
-						Gender: {props.gender}
-						<br />
-						Hair: {props.hair}
-						<br />
-						Eyes: {props.eyes}
+						{props.contenido.map((item, index) => {
+							return (
+								<p key={index}>
+									{item.label}: {item.value}
+								</p>
+							);
+						})}
 					</p>
 					<a href={props.link} className="btn btn-primary">
 						Ver Detalle
@@ -30,5 +32,6 @@ Card.propTypes = {
 	gender: PropTypes.string,
 	hair: PropTypes.string,
 	eyes: PropTypes.string,
-	link: PropTypes.string
+	link: PropTypes.string,
+	contenido: PropTypes.array
 };
