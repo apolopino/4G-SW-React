@@ -12,7 +12,7 @@ export const Planets = () => {
 	return (
 		<div className="container">
 			<h1>Planetas</h1>
-			<div className="row flex-row flex-nowrap">
+			<div className="row flex-row flex-nowrap overflow-auto">
 				{store.planetList.map((item, index) => {
 					const dataPlanet = [
 						{
