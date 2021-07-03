@@ -12,12 +12,12 @@ export const Navbar = () => {
 					<button className="btn btn-primary">Personajes</button>
 				</Link>
 			</div>
-			<div className="ml-auto">
+			<div className="ml-3">
 				<Link to="/vehiculos">
 					<button className="btn btn-primary">Vehiculos</button>
 				</Link>
 			</div>
-			<div className="ml-auto">
+			<div className="ml-3">
 				<Link to="/planetas">
 					<button className="btn btn-primary">Planetas</button>
 				</Link>
