@@ -3,7 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			peopleList: [],
 			planetList: [],
-			vehicleList: []
+			vehicleList: [],
+			favList: [],
+			isHome: ""
 		},
 		actions: {
 			listaCharacters: () => {
@@ -28,6 +30,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => setStore({ vehicleList: data.results }));
+			},
+
+			setHome: status => {
+				setStore({ isHome: status });
+			},
+
+			setFavs: fav => {
+				// Tengo que traer el store, pues le agregaré algo
+				const store = getStore();
+				setStore({ favList: [...store.favList, fav] });
 			}
 		}
 	};

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 export const Card = props => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="col-md-4 mb-3">
 			<div className="card">
@@ -21,9 +24,9 @@ export const Card = props => {
 						<a href={props.link} className="btn btn-primary" style={{ color: "#fff" }}>
 							Ver Detalle
 						</a>
-						<a href="#" className="btn btn-warning ml-a">
+						<button onClick={() => actions.setFavs(props.title)} className="btn btn-warning ml-a">
 							<i className="far fa-heart" />
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>

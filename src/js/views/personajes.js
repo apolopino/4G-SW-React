@@ -8,12 +8,15 @@ export const Characters = () => {
 
 	useEffect(() => {
 		actions.listaCharacters();
+		actions.setHome(false);
+		console.log("chars - estamos en home?: ", store.isHome);
 	}, []);
 
 	return (
 		<div className="container">
 			<h1>Personajes</h1>
-			<div className="row flex-row flex-nowrap overflow-auto">
+			{/* Quiero que dependiendo del isHome se pueda hacer scroll o no.. pero no funca */}
+			<div className={(store.isHome = true ? "row flex-row flex-nowrap overflow-auto" : "row")}>
 				{store.peopleList.map((item, index) => {
 					const dataPerson = [
 						{
