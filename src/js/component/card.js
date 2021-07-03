@@ -8,7 +8,7 @@ export const Card = props => {
 				<img src={props.url} className="card-img-top" alt="..." />
 				<div className="card-body">
 					<h5 className="card-title">{props.title}</h5>
-					<p className="card-text">
+					<div className="card-text">
 						{props.contenido.map((item, index) => {
 							return (
 								<p key={index}>
@@ -16,11 +16,15 @@ export const Card = props => {
 								</p>
 							);
 						})}
-					</p>
-					<a href={props.link} className="btn btn-primary">
-						Ver Detalle
-					</a>
-					{/* Agregar boton like */}
+					</div>
+					<div className="row justify-content-between">
+						<a href={props.link} className="btn btn-primary" style={{ color: "#fff" }}>
+							Ver Detalle
+						</a>
+						<a href="#" className="btn btn-warning ml-a">
+							<i className="far fa-heart" />
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -28,10 +32,7 @@ export const Card = props => {
 };
 Card.propTypes = {
 	url: PropTypes.string,
-	title: PropTypes.string,
-	gender: PropTypes.string,
-	hair: PropTypes.string,
-	eyes: PropTypes.string,
 	link: PropTypes.string,
+	title: PropTypes.string,
 	contenido: PropTypes.array
 };
