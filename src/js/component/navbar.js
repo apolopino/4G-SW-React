@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
+	const deleteFav = () => {
+		console.log("delete fav");
+	};
+
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -28,7 +32,7 @@ export const Navbar = () => {
 
 			<div className="dropdown">
 				<a
-					className="btn btn-secondary dropdown-toggle ml-3"
+					className="btn btn-secondary dropdown-toggle ml-3 mr-5 pr-1"
 					href="#"
 					role="button"
 					id="dropdownMenuLink"
@@ -40,9 +44,14 @@ export const Navbar = () => {
 				<div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					{store.favList.map((item, index) => {
 						return (
-							<a key={index} className="dropdown-item" href="#">
-								{item}
-							</a>
+							<div key={`div-${index}`} className="dropdown-item">
+								<span className="mr-3" key={index} href="#">
+									{item}
+								</span>
+								<button onClick={() => deleteFav()}>
+									<i className="far fa-trash-alt" />
+								</button>
+							</div>
 						);
 					})}
 				</div>
