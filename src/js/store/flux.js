@@ -42,14 +42,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				console.log("el fav a agregar es:", fav);
 				console.log("los favoritos en store son:", store.favList);
-				store.favList.length > 0
-					? store.favList.map((item, index) => {
-							fav === item
-								? (console.log("fav===item returned true"), alert("El favorito ya existe!"))
-								: (console.log("fav===item returned false"),
-								  setStore({ favList: [...store.favList, fav] }));
-					  })
-					: setStore({ favList: [...store.favList, fav] });
+
+				const content = element => element === fav;
+				let found = store.favList.findIndex(content);
+
+				found > -1 ? alert("Elemento ya existe!") : setStore({ favList: [...store.favList, fav] });
 			}
 		}
 	};
