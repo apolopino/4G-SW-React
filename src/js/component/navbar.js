@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
-	const deleteFav = () => {
-		console.log("delete fav");
+	const deleteFav = item => {
+		actions.deleteFavs(item);
 	};
 
 	return (
@@ -45,12 +45,12 @@ export const Navbar = () => {
 					{store.favList.map((item, index) => {
 						return (
 							<div key={`div-${index}`} className="dropdown-item">
-								<span className="mr-3" key={index} href="#">
+								<span onClick={() => deleteFav(item)}>
+									<i className="far fa-trash-alt" />
+								</span>
+								<span className="ml-3" key={index} href="#">
 									{item}
 								</span>
-								<button onClick={() => deleteFav()}>
-									<i className="far fa-trash-alt" />
-								</button>
 							</div>
 						);
 					})}

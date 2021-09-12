@@ -40,13 +40,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFavs: fav => {
 				// Tengo que traer el store, pues le agregaré algo
 				const store = getStore();
-				console.log("el fav a agregar es:", fav);
-				console.log("los favoritos en store son:", store.favList);
 
 				const content = element => element === fav;
-				let found = store.favList.findIndex(content);
+				const index = store.favList.findIndex(content);
 
-				found > -1 ? alert("Elemento ya existe!") : setStore({ favList: [...store.favList, fav] });
+				index > -1 ? alert("Elemento ya existe!") : setStore({ favList: [...store.favList, fav] });
+			},
+
+			deleteFavs: item => {
+				const store = getStore();
+
+				const content = element => element === item;
+				const index = store.favList.findIndex(content);
+
+				store.favList.splice(index, 1);
+				setStore({ favlist: store.favList });
 			}
 		}
 	};
