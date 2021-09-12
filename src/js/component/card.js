@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
 
 export const Card = props => {
 	const { store, actions } = useContext(Context);
@@ -21,9 +23,14 @@ export const Card = props => {
 						})}
 					</div>
 					<div className="row justify-content-between">
-						<a href={props.link} className="btn btn-primary" style={{ color: "#fff" }}>
+						{/* <a href={props.link} className="btn btn-primary" style={{ color: "#fff" }}>
 							Ver Detalle
-						</a>
+						</a> */}
+						<Link to={props.link}>
+							<Button className="btn btn-primary" style={{ color: "#fff" }}>
+								Detalle
+							</Button>
+						</Link>
 						<button onClick={() => actions.setFavs(props.title)} className="btn btn-warning ml-a">
 							<i className="far fa-heart" />
 						</button>
