@@ -37,7 +37,6 @@ export const Navbar = () => {
 					aria-expanded="false">
 					Favoritos {store.favList.length}
 				</a>
-				{/* Por alguna razón no funciona el dropdown, pero el browser si actualiza los elements al mirar inspeccionar */}
 				<div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					{store.favList.map((item, index) => {
 						return (

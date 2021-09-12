@@ -11,7 +11,7 @@ export const Home = () => {
 
 	useEffect(() => {
 		actions.setHome(true);
-		console.log("home - estamos en home?: ", store.isHome);
+		// console.log("home - estamos en home?: ", store.isHome);
 	}, []);
 
 	console.log("el listado de favoritos es: ", store.favList);

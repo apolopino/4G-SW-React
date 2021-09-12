@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favList: [],
 			isHome: ""
 		},
+
 		actions: {
 			listaCharacters: () => {
 				fetch("https://swapi.dev/api/people/", {
@@ -39,7 +40,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFavs: fav => {
 				// Tengo que traer el store, pues le agregaré algo
 				const store = getStore();
-				setStore({ favList: [...store.favList, fav] });
+				console.log("el fav a agregar es:", fav);
+				console.log("los favoritos en store son:", store.favList);
+				store.favList.length > 0
+					? store.favList.map((item, index) => {
+							fav === item
+								? (console.log("fav===item returned true"), alert("El favorito ya existe!"))
+								: (console.log("fav===item returned false"),
+								  setStore({ favList: [...store.favList, fav] }));
+					  })
+					: setStore({ favList: [...store.favList, fav] });
 			}
 		}
 	};
