@@ -5,7 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetList: [],
 			vehicleList: [],
 			favList: [],
-			isHome: ""
+			isHome: "",
+			detalle: {}
 		},
 
 		actions: {
@@ -55,6 +56,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				store.favList.splice(index, 1);
 				setStore({ favlist: store.favList });
+			},
+
+			getDetail: (type, id) => {
+				fetch("https://swapi.dev/api/" + type + "/" + id, {
+					method: "GET"
+				})
+					.then(res => res.json())
+					.then(data => setStore({ detalle: data }));
 			}
 		}
 	};

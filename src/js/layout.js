@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Characters } from "./views/personajes.js";
 import { Planets } from "./views/planets.js";
 import { Vehicles } from "./views/vehicles.js";
+import { Detalle } from "./views/detalle.js";
 
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
@@ -39,6 +40,18 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/planetas">
 							<Planets />
+						</Route>
+
+						<Route exact path="/people/:id">
+							<Detalle type="people" />
+						</Route>
+
+						<Route exact path="/vehicles/:id">
+							<Detalle type="vehicles" />
+						</Route>
+
+						<Route exact path="/planets/:id">
+							<Detalle type="planets" />
 						</Route>
 
 						<Route>
